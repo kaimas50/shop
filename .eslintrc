@@ -14,6 +14,10 @@
     "object-curly-newline": "off",
     "react/no-array-index-key": "off",
     "react/prefer-stateless-function": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "react/forbid-prop-types": "off",
+    "react/destructuring-assignment": "off",
   }
 }

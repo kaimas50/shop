@@ -6,6 +6,10 @@ import sriracha from './images/sriracha.jpg';
 import soba from './images/soba.jpg';
 import leffe from './images/leffe.jpg';
 import ryeBread from './images/rye-bread.jpg';
+import cocoOrange from './images/coco-orange.jpg';
+import darkCocoOrange from './images/dark-coco-orange.jpg';
+import canFish from './images/can-fish.jpg';
+import szechuan from './images/szechuan.jpg';
 
 export function getAllItems() {
   let id = 0;
@@ -16,6 +20,10 @@ export function getAllItems() {
     newItem(id++, 'Nissin Noodles', 'Nissin Soba Chilli Instant Noodles', soba, '1.23'),
     newItem(id++, 'Leffe Brune', 'Leffe Brune Belgian Beer 750ml', leffe, '3.00'),
     newItem(id++, 'Rye Bread', 'Biona Organic Yeast Free Vitality Rye Bread with Sprouted Seeds', ryeBread, '2.00'),
+    newItem(id++, 'Chocolate Orange', "Terry's Milk Chocolate Orange", cocoOrange, '2.00'),
+    newItem(id++, 'Dark Chocolate Orange', "Terry's Dark Chocolate Orange", darkCocoOrange, '2.00'),
+    newItem(id++, 'Mackerel', 'Essential Waitrose Mackerel in Spicy Tomato Sauce', canFish, '0.90'),
+    newItem(id++, 'Szechuan Sauce', "Sharwood's Spicy Tomato & Szechuan Stir Fry Sauce", szechuan, '99.99'),
   ];
 }
 

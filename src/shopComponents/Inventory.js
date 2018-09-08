@@ -5,23 +5,7 @@ import { Grid } from '@material-ui/core';
 import SaleItem from './SaleItem';
 
 class Inventory extends React.Component {
-  componentDidMount() {
-    this.setItems(this.props.items);
-  }
-
-  componentDidUpdate(prevProps) {
-    const { items } = this.props;
-    if (items !== prevProps.items) {
-      this.setItems(items);
-    }
-  }
-
-  setItems = (items) => {
-    const { shoppingCartContext } = this.props;
-    shoppingCartContext.setItems(items);
-  }
-
-  Items = (shoppingCartProps) => this.props.items.map(item => {
+  Items = (shoppingCartProps) => shoppingCartProps.getAllItems().map(item => {
     return (
       <SaleItem
         value={shoppingCartProps.getAmount(item.id)}
@@ -48,7 +32,6 @@ class Inventory extends React.Component {
   }
 }
 Inventory.propTypes = {
-  items: PropTypes.array.isRequired,
   shoppingCartContext: PropTypes.object.isRequired,
 };
 

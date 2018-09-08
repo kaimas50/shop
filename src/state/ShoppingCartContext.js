@@ -3,9 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as helper from './ShoppingCartHelper';
 
-const ShoppingCartContext = React.createContext({
-  items: [],
-});
+const ShoppingCartContext = React.createContext({});
 
 export const ShoppingCartConsumer = ShoppingCartContext.Consumer;
 
@@ -16,15 +14,16 @@ export class ShoppingCartProvider extends React.Component {
     this.getChangeHandler = this.getChangeHandler.bind(this);
     this.setItems = this.setItems.bind(this);
     this.getTotalPrice = this.getTotalPrice.bind(this);
+    this.getAllItems = this.getAllItems.bind(this);
 
     this.state = {
       itemAmounts: {},
       items: {},
-      changeHandlers: {},
       getAmount: this.getAmount,
       getChangeHandler: this.getChangeHandler,
       setItems: this.setItems,
       getTotalPrice: this.getTotalPrice,
+      getAllItems: this.getAllItems,
     };
   }
 
@@ -39,13 +38,15 @@ export class ShoppingCartProvider extends React.Component {
   }
 
   setItems(items) {
-    this.setState({ items });
+    this.setState({ items: [...items] });
+  }
+
+  getAllItems() {
+    return Object.values(this.state.items);
   }
 
   getChangeHandler(itemId) {
-    const { changeHandlers } = this.state;
-    if (!changeHandlers[itemId]) changeHandlers[itemId] = this.newChangeHandler(itemId);
-    return changeHandlers[itemId];
+    return this.newChangeHandler(itemId);
   }
 
   getTotalPrice() {

@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
 import StepNumberInput from '../components/StepNumberInput';
+import { MAX_ITEM_AMOUNT } from '../constants';
 
 const SaleItem = (props) => (
   <ItemDiv id={props.id}>
     <ExpandingPaper>
       <div>{props.name}</div>
       <img src={props.imgSrc} alt="" />
-      <StepNumberInput min={0} value={props.value} onChange={props.onChange} />
+      <div>{`${props.price}€`}</div>
+      <StepNumberInput
+        min={0}
+        max={MAX_ITEM_AMOUNT}
+        value={props.value}
+        onChange={props.onChange}
+      />
       <div>{props.desc}</div>
     </ExpandingPaper>
   </ItemDiv>
@@ -19,13 +26,14 @@ SaleItem.propTypes = {
   name: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.number.isRequired,
 };
 
 const ItemDiv = styled.div`
   && {
-    height: 280px;
+    height: 315px;
     padding: 4px;
 
     @media only screen and (max-width: 600px) {
@@ -53,6 +61,7 @@ const ExpandingPaper = styled(Paper)`
   width: 100%;
   height: 100%;
   padding: 4px;
+  overflow: hidden;
 `;
 
 export default SaleItem;

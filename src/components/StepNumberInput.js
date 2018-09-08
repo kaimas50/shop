@@ -11,10 +11,11 @@ class StepNumberInput extends Component {
   };
 
   setValue = (value) => {
-    const { onChange, min } = this.props;
+    const { onChange, min, max } = this.props;
     const tooSmall = min !== null && value < min;
+    const tooBig = max !== null && max < value;
     const isInteger = Number.isInteger(value);
-    if (isInteger && !tooSmall) onChange(value);
+    if (isInteger && !tooSmall && !tooBig) onChange(value);
   }
 
   render() {
@@ -23,9 +24,9 @@ class StepNumberInput extends Component {
 
     return (
       <Wrapper>
-        <NumButton onClick={this.handlePlus}>+</NumButton>
-        <NumInput value={displayValue} onChange={this.handleChange} />
         <NumButton onClick={this.handleMinus}>-</NumButton>
+        <NumInput value={displayValue} onChange={this.handleChange} />
+        <NumButton onClick={this.handlePlus}>+</NumButton>
       </Wrapper>
     );
   }
@@ -34,14 +35,17 @@ StepNumberInput.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   min: PropTypes.number,
+  max: PropTypes.number,
 };
 StepNumberInput.defaultProps = {
   min: null,
+  max: null,
 };
 
 const NumInput = styled(Input)`
   width: 50px;
   input {
+    color: darkred;
     text-align: center;
   }
 `;
@@ -55,6 +59,7 @@ const NumButton = styled(IconButton)`
 const Wrapper = styled.div`
   display: inline-block;
   width: 130px;
+  height: 42px;
   padding: 4px;
 `;
 

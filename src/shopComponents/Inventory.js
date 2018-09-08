@@ -3,9 +3,24 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 import SaleItem from './SaleItem';
-import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 
 class Inventory extends React.Component {
+  componentDidMount() {
+    this.setItems(this.props.items);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { items } = this.props;
+    if (items !== prevProps.items) {
+      this.setItems(items);
+    }
+  }
+
+  setItems = (items) => {
+    const { shoppingCartContext } = this.props;
+    shoppingCartContext.setItems(items);
+  }
+
   Items = (shoppingCartProps) => this.props.items.map(item => {
     return (
       <SaleItem
@@ -18,6 +33,7 @@ class Inventory extends React.Component {
   });
 
   render() {
+    const { shoppingCartContext } = this.props;
     return (
       <ContainerGrid
         container
@@ -26,17 +42,14 @@ class Inventory extends React.Component {
         alignItems="flex-start"
         wrap="wrap"
       >
-        <ShoppingCartConsumer>
-          {
-            context => this.Items(context)
-          }
-        </ShoppingCartConsumer>
+        <this.Items {...shoppingCartContext} />
       </ContainerGrid>
     );
   }
 }
 Inventory.propTypes = {
   items: PropTypes.array.isRequired,
+  shoppingCartContext: PropTypes.object.isRequired,
 };
 
 const ContainerGrid = styled(Grid)`

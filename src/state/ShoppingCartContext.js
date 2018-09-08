@@ -13,23 +13,30 @@ export class ShoppingCartProvider extends React.Component {
     super(props);
     this.getAmount = this.getAmount.bind(this);
     this.getChangeHandler = this.getChangeHandler.bind(this);
+    this.setItems = this.setItems.bind(this);
 
     this.state = {
+      itemAmounts: {},
       items: {},
       changeHandlers: {},
       getAmount: this.getAmount,
       getChangeHandler: this.getChangeHandler,
+      setItems: this.setItems,
     };
   }
 
   newChangeHandler = (itemId) => (value) => {
-    const { items } = this.state;
-    this.setState({ items: { ...items, [itemId]: value } });
+    const { itemAmounts } = this.state;
+    this.setState({ itemAmounts: { ...itemAmounts, [itemId]: value } });
   }
 
   getAmount(itemId) {
-    const { items } = this.state;
-    return items[itemId] || 0;
+    const { itemAmounts } = this.state;
+    return itemAmounts[itemId] || 0;
+  }
+
+  setItems(items) {
+    this.setState({ items });
   }
 
   getChangeHandler(itemId) {

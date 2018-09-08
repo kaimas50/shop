@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Inventory from '../shopComponents/Inventory';
 import { getAllItems } from '../api/mockApi';
+import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 
 const title = 'Inventory';
 
@@ -19,7 +20,9 @@ class Browse extends React.Component {
     const { items } = this.state;
     return (
       <React.Fragment>
-        <Inventory items={items} />
+        <ShoppingCartConsumer>
+          {(context) => <Inventory items={items} shoppingCartContext={context} />}
+        </ShoppingCartConsumer>
       </React.Fragment>
     );
   }

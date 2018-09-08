@@ -1,34 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Button } from '@material-ui/core';
 import { CenteringDiv } from '../components/HelperComponents';
-
-const title = 'Welcome to the Shop';
+import Header from '../components/Header';
+import { TITLE_HOME, ROUTE_BROWSE } from '../constants';
 
 class Home extends React.Component {
-  componentDidMount() {
-    this.props.setTitle(title);
-  }
-
   render() {
     return (
-      <CenteringDiv>
-        <BrowseButton
-          variant="contained"
-          component={Link}
-          to="/browse"
-        >
-          Browse inventory
-        </BrowseButton>
-      </CenteringDiv>
+      <React.Fragment>
+        <Header title={TITLE_HOME} />
+        <CenteringDiv>
+          <BrowseButton
+            variant="contained"
+            component={Link}
+            to={ROUTE_BROWSE}
+          >
+            Browse inventory
+          </BrowseButton>
+        </CenteringDiv>
+      </React.Fragment>
     );
   }
 }
-Home.propTypes = {
-  setTitle: PropTypes.func.isRequired,
-};
 
 const BrowseButton = styled(Button)`
   && {

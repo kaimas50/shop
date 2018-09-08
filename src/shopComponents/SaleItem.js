@@ -22,7 +22,7 @@ const SaleItem = (props) => (
   </ItemDiv>
 );
 SaleItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,

@@ -21,7 +21,7 @@ let id = 0;
 function newItem(name, desc, imgSrc, price) {
   id += 1;
   return {
-    id,
+    id: `${id}`,
     name,
     desc,
     imgSrc,

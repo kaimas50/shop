@@ -1,6 +1,7 @@
 /* eslint react/no-unused-state: 0 */
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as helper from './ShoppingCartHelper';
 
 const ShoppingCartContext = React.createContext({
   items: [],
@@ -14,6 +15,7 @@ export class ShoppingCartProvider extends React.Component {
     this.getAmount = this.getAmount.bind(this);
     this.getChangeHandler = this.getChangeHandler.bind(this);
     this.setItems = this.setItems.bind(this);
+    this.getTotalPrice = this.getTotalPrice.bind(this);
 
     this.state = {
       itemAmounts: {},
@@ -22,6 +24,7 @@ export class ShoppingCartProvider extends React.Component {
       getAmount: this.getAmount,
       getChangeHandler: this.getChangeHandler,
       setItems: this.setItems,
+      getTotalPrice: this.getTotalPrice,
     };
   }
 
@@ -45,7 +48,13 @@ export class ShoppingCartProvider extends React.Component {
     return changeHandlers[itemId];
   }
 
+  getTotalPrice() {
+    const { items, itemAmounts } = this.state;
+    return helper.getTotalPrice(items, itemAmounts);
+  }
+
   render() {
+    window.ctx = this.state;
     return (
       <ShoppingCartContext.Provider value={this.state}>
         {this.props.children}

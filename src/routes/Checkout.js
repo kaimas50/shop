@@ -1,23 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-const title = 'Checkout';
+import Header from '../components/Header';
+import { TITLE_CHECKOUT } from '../constants';
 
 class Checkout extends React.Component {
-  componentDidMount() {
-    this.props.setTitle(title);
-  }
-
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <Header title={TITLE_CHECKOUT} />
         Checkout
-      </div>
+      </React.Fragment>
     );
   }
 }
-Checkout.propTypes = {
-  setTitle: PropTypes.func.isRequired,
-};
 
 export default Checkout;

@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Inventory from '../shopComponents/Inventory';
 import { getAllItems } from '../api/mockApi';
 import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
-
-const title = 'Inventory';
+import Header from '../components/Header';
+import { TITLE_INVENTORY } from '../constants';
 
 class Browse extends React.Component {
   state = {
@@ -12,7 +11,6 @@ class Browse extends React.Component {
   }
 
   componentDidMount() {
-    this.props.setTitle(title);
     this.setState({ items: getAllItems() });
   }
 
@@ -20,6 +18,7 @@ class Browse extends React.Component {
     const { items } = this.state;
     return (
       <React.Fragment>
+        <Header title={TITLE_INVENTORY} showCart />
         <ShoppingCartConsumer>
           {(context) => <Inventory items={items} shoppingCartContext={context} />}
         </ShoppingCartConsumer>
@@ -27,9 +26,5 @@ class Browse extends React.Component {
     );
   }
 }
-
-Browse.propTypes = {
-  setTitle: PropTypes.func.isRequired,
-};
 
 export default Browse;

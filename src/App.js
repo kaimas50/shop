@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
-import Inventory from './components/Inventory';
-import SaleItem from './components/SaleItem';
+import Inventory from './shopComponents/Inventory';
+import { getAllItems } from './api/mockApi';
 
 class App extends Component {
   render() {
@@ -10,20 +10,12 @@ class App extends Component {
       <div className="App">
         <CssBaseline />
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to the Shop</h1>
         </header>
-        <Inventory items={getDummyItems()} />
+        <Inventory items={getAllItems()} />
       </div>
     );
   }
-}
-
-function getDummyItems() {
-  const items = [];
-  for (let i = 0; i < 21; i += 1) {
-    items.push(<SaleItem key={i} num={i} />);
-  }
-  return items;
 }
 
 export default App;

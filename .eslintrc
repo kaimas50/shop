@@ -19,5 +19,6 @@
     "arrow-parens": "off",
     "react/forbid-prop-types": "off",
     "react/destructuring-assignment": "off",
+    "lines-between-class-members": "off"
   }
 }

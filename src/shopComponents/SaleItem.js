@@ -2,21 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
+import StepNumberInput from '../components/StepNumberInput';
 
 const SaleItem = (props) => (
-  <ItemDiv>
+  <ItemDiv id={props.id}>
     <ExpandingPaper>
-      {props.num}
+      <div>{props.name}</div>
+      <img src={props.imgSrc} alt="" />
+      <StepNumberInput />
+      <div>{props.desc}</div>
     </ExpandingPaper>
   </ItemDiv>
 );
 SaleItem.propTypes = {
-  num: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
 };
 
 const ItemDiv = styled.div`
   && {
-    height: 150px;
+    height: 280px;
     padding: 4px;
 
     @media only screen and (max-width: 600px) {
@@ -43,6 +50,7 @@ const ItemDiv = styled.div`
 const ExpandingPaper = styled(Paper)`
   width: 100%;
   height: 100%;
+  padding: 4px;
 `;
 
 export default SaleItem;

@@ -1,11 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grid } from '@material-ui/core';
 import SaleItem from './SaleItem';
+import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 
-class Inventory extends Component {
-  Items = () => this.props.items.map(x => <SaleItem key={x.id} {...x} />);
+class Inventory extends React.Component {
+  Items = (shoppingCartProps) => this.props.items.map(item => {
+    return (
+      <SaleItem
+        value={shoppingCartProps.getAmount(item.id)}
+        onChange={shoppingCartProps.getChangeHandler(item.id)}
+        key={item.id}
+        {...item}
+      />
+    );
+  });
 
   render() {
     return (
@@ -16,7 +26,11 @@ class Inventory extends Component {
         alignItems="flex-start"
         wrap="wrap"
       >
-        <this.Items />
+        <ShoppingCartConsumer>
+          {
+            context => this.Items(context)
+          }
+        </ShoppingCartConsumer>
       </ContainerGrid>
     );
   }

@@ -4,17 +4,28 @@ import { Input, IconButton } from '@material-ui/core';
 import styled from 'styled-components';
 
 class StepNumberInput extends Component {
-  handleMinus = () => this.props.onChange(this.props.value - 1);
-  handlePlus = () => this.props.onChange(this.props.value + 1);
+  handleMinus = () => this.setValue(this.props.value - 1);
+  handlePlus = () => this.setValue(this.props.value + 1);
+  handleChange = (e) => {
+    this.setValue(parseInt(e.target.value || 0, 10));
+  };
+
+  setValue = (value) => {
+    const { onChange, min } = this.props;
+    const tooSmall = min !== null && value < min;
+    const isInteger = Number.isInteger(value);
+    if (isInteger && !tooSmall) onChange(value);
+  }
 
   render() {
-    const { value, onChange } = this.props;
+    const { value } = this.props;
+    const displayValue = value || '';
 
     return (
       <Wrapper>
-        <NumButton onClick={this.handleMinus}>-</NumButton>
-        <NumInput value={value} onChange={onChange} />
         <NumButton onClick={this.handlePlus}>+</NumButton>
+        <NumInput value={displayValue} onChange={this.handleChange} />
+        <NumButton onClick={this.handleMinus}>-</NumButton>
       </Wrapper>
     );
   }
@@ -22,10 +33,17 @@ class StepNumberInput extends Component {
 StepNumberInput.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  min: PropTypes.number,
+};
+StepNumberInput.defaultProps = {
+  min: null,
 };
 
 const NumInput = styled(Input)`
   width: 50px;
+  input {
+    text-align: center;
+  }
 `;
 const NumButton = styled(IconButton)`
   && {

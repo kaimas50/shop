@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const title = 'Checkout';
 
-class Checkout extends Component {
+class Checkout extends React.Component {
   componentDidMount() {
     this.props.setTitle(title);
   }

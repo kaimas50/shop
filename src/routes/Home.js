@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import { CenteringDiv } from '../components/HelperComponents';
 
 const title = 'Welcome to the Shop';
 
-class Home extends Component {
+class Home extends React.Component {
   componentDidMount() {
     this.props.setTitle(title);
   }

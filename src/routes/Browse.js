@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Inventory from '../shopComponents/Inventory';
 import { getAllItems } from '../api/mockApi';
 
 const title = 'Inventory';
 
-class Browse extends Component {
+class Browse extends React.Component {
   state = {
     items: [],
   }

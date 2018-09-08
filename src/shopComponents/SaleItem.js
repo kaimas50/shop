@@ -9,7 +9,7 @@ const SaleItem = (props) => (
     <ExpandingPaper>
       <div>{props.name}</div>
       <img src={props.imgSrc} alt="" />
-      <StepNumberInput />
+      <StepNumberInput min={0} value={props.value} onChange={props.onChange} />
       <div>{props.desc}</div>
     </ExpandingPaper>
   </ItemDiv>
@@ -19,6 +19,8 @@ SaleItem.propTypes = {
   name: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 const ItemDiv = styled.div`

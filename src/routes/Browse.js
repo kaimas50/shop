@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Inventory from '../shopComponents/Inventory';
-import * as api from '../api/mockApi';
+import * as api from '../api/dummyApi';
 import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 import Header from '../components/Header';
 import { TITLE_INVENTORY } from '../constants';

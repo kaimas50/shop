@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as helper from './ShoppingCartHelper';
-import { getShoppingCart } from '../api/mockApi';
+import { getShoppingCart } from '../api/dummyApi';
 
 const ShoppingCartContext = React.createContext({});
 

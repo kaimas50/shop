@@ -41,8 +41,8 @@ function newItem(id, name, desc, imgSrc, price) {
 
 const STORAGE_KEY_SOPPING_CARD = 'shoppingCart';
 export function getShoppingCart() {
-  const str = window.localStorage.getItem(STORAGE_KEY_SOPPING_CARD);
   try {
+    const str = window.localStorage.getItem(STORAGE_KEY_SOPPING_CARD);
     return JSON.parse(str);
   } catch (e) {
     return null;

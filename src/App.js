@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import Home from './routes/Home';
@@ -14,9 +14,13 @@ class App extends React.Component {
       <div className="App">
         <CssBaseline />
         <ShoppingCartProvider>
-          <Route exact path={ROUTE_HOME} component={Home} />
-          <Route exact path={ROUTE_BROWSE} component={Browse} />
-          <Route exact path={ROUTE_CHECKOUT} component={Checkout} />
+          <BrowserRouter>
+            <Switch>
+              <Route exact path={ROUTE_HOME} component={Home} />
+              <Route exact path={ROUTE_BROWSE} component={Browse} />
+              <Route exact path={ROUTE_CHECKOUT} component={Checkout} />
+            </Switch>
+          </BrowserRouter>
         </ShoppingCartProvider>
       </div>
     );

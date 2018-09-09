@@ -7,8 +7,7 @@ import LinkButton from '../components/LinkButton';
 import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 import CheckoutItemDetails from '../shopComponents/CheckoutDetails';
 import { PageBody, BigText } from '../components/HelperComponents';
-import * as api from '../api/mockApi';
-import { Button } from '@material-ui/core';
+import * as api from '../api/dummyApi';
 
 class Checkout extends React.Component {
   CheckoutItems = () => {

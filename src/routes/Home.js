@@ -34,4 +34,3 @@ const BrowseButton = styled(Button)`
 `;
 
 export default Home;
-``

@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="sc-bxivhb dVuENo"
+  id="1"
+>
+  <div
+    className="MuiPaper-root-1 MuiPaper-elevation2-5 MuiPaper-rounded-2 sc-ifAKCX lcPtQz"
+  >
+    <div>
+      Sale Item
+    </div>
+    <img
+      alt=""
+      src="can-fish.jpg"
+    />
+    <div>
+      50€
+    </div>
+    <div
+      className="sc-htpNat eeSbyC"
+    >
+      <button
+        className="MuiButtonBase-root-34 MuiIconButton-root-28 sc-bwzfXH buaYIJ"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label-33"
+        >
+          -
+        </span>
+        <span
+          className="MuiTouchRipple-root-37"
+        />
+      </button>
+      <div
+        className="MuiInput-root-44 MuiInput-underline-48 sc-bdVaJa jTIBAz"
+      >
+        <input
+          aria-invalid={undefined}
+          autoComplete={undefined}
+          autoFocus={undefined}
+          className="MuiInput-input-52"
+          defaultValue={undefined}
+          disabled={undefined}
+          id={undefined}
+          name={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={undefined}
+          onKeyUp={undefined}
+          placeholder={undefined}
+          readOnly={undefined}
+          required={undefined}
+          rows={undefined}
+          type="text"
+          value={4}
+        />
+      </div>
+      <button
+        className="MuiButtonBase-root-34 MuiIconButton-root-28 sc-bwzfXH buaYIJ"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label-33"
+        >
+          +
+        </span>
+        <span
+          className="MuiTouchRipple-root-37"
+        />
+      </button>
+    </div>
+    <div>
+      Description
+    </div>
+  </div>
+</div>
+`;

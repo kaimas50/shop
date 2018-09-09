@@ -44,7 +44,9 @@ Browse.propTypes = {
 };
 
 const CartWrapper = styled.div`
-  float: right;
+  top: 82px;
+  position: absolute;
+  right: 9px;
   font-size: 18px;
 `;
 

@@ -10,6 +10,7 @@ class ShoppingCartWidget extends Component {
     const { totalPrice, onNavigate } = this.props;
     return (
       <div>
+        <div>{`TOTAL: ${totalPrice}${SYMBOL_EURO}`}</div>
         <CheckoutButton
           hide={totalPrice === '0.00' ? 1 : 0} // throws warning if bool passed
           color="secondary"
@@ -19,7 +20,6 @@ class ShoppingCartWidget extends Component {
         >
           {'Checkout >>>'}
         </CheckoutButton>
-        <div>{`TOTAL: ${totalPrice}${SYMBOL_EURO}`}</div>
       </div>
     );
   }

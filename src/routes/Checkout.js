@@ -49,7 +49,7 @@ class Checkout extends React.Component {
           <TextWrapper>
             <StyledBigText>{`TOTAL: ${total}${SYMBOL_EURO}`}</StyledBigText>
           </TextWrapper>
-          <LinkButton
+          <StyledLinkButton
             label="CONFIRM"
             to={ROUTE_HOME}
             buttonProps={{
@@ -67,7 +67,9 @@ Checkout.propTypes = {
 };
 
 const BackWrapper = styled.div`
-  float: left;
+  left: 10px;
+  top: 100px;
+  position: absolute;
 `;
 
 const TextWrapper = styled.div`
@@ -81,11 +83,16 @@ const StyledBigText = styled(BigText)`
   display: inline-block;
 `;
 
-export const ItemsWrapper = styled.div`
+const ItemsWrapper = styled.div`
   display: flex;
   margin-left: 50%;
   flex-direction: column;
+  margin-top: 10px;
   margin-bottom: 20px;
+`;
+
+const StyledLinkButton = styled(LinkButton)`
+  margin-bottom: 10px;
 `;
 
 export default props => (

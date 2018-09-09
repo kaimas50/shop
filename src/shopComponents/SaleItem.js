@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import styled from 'styled-components';
 import StepNumberInput from '../components/StepNumberInput';
-import { MAX_ITEM_AMOUNT } from '../constants';
+import { MAX_ITEM_AMOUNT, SYMBOL_EURO } from '../constants';
 
 const SaleItem = (props) => (
   <ItemDiv id={props.id}>
     <ExpandingPaper>
       <div>{props.name}</div>
       <img src={props.imgSrc} alt="" />
-      <div>{`${props.price}€`}</div>
+      <div>{`${props.price}${SYMBOL_EURO}`}</div>
       <StepNumberInput
         min={0}
         max={MAX_ITEM_AMOUNT}

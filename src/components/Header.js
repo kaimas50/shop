@@ -1,35 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import ShoppingCartWidget from '../shopComponents/ShoppingCartWidget';
-import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
+import styled from 'styled-components';
 
 const Header = props => {
-  const { showCart } = props;
+  const { children } = props;
   return (
     <header className="App-header">
-      <h1 className="App-title">{props.title}</h1>
-      { showCart && (
-        <CartWrapper>
-          <ShoppingCartConsumer>
-            {(context) => <ShoppingCartWidget shoppingCartContext={context} />}
-          </ShoppingCartConsumer>
-        </CartWrapper>
-      )}
+      <Title className="App-title">{props.title}</Title>
+      {children}
     </header>
   );
 };
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  showCart: PropTypes.bool,
+  children: PropTypes.node,
 };
 Header.defaultProps = {
-  showCart: false,
+  children: null,
 };
 
-const CartWrapper = styled.div`
-  float: right;
-  font-size: 18px;
+const Title = styled.h1`
+  margin-bottom: 0px;
 `;
 
 export default Header;

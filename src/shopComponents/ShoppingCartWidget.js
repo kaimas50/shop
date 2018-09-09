@@ -3,29 +3,30 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core';
-import { ROUTE_CHECKOUT } from '../constants';
+import { ROUTE_CHECKOUT, SYMBOL_EURO } from '../constants';
 
 class ShoppingCartWidget extends Component {
   render() {
-    const { shoppingCartContext } = this.props;
-    const totalPrice = shoppingCartContext.getTotalPrice();
+    const { totalPrice, onNavigate } = this.props;
     return (
       <div>
-        <div>{`TOTAL: ${totalPrice}€`}</div>
         <CheckoutButton
           hide={totalPrice === '0.00' ? 1 : 0} // throws warning if bool passed
           color="secondary"
           component={Link}
           to={ROUTE_CHECKOUT}
+          onClick={onNavigate}
         >
           {'Checkout >>>'}
         </CheckoutButton>
+        <div>{`TOTAL: ${totalPrice}${SYMBOL_EURO}`}</div>
       </div>
     );
   }
 }
 ShoppingCartWidget.propTypes = {
-  shoppingCartContext: PropTypes.object.isRequired,
+  totalPrice: PropTypes.string.isRequired,
+  onNavigate: PropTypes.func.isRequired,
 };
 
 const CheckoutButton = styled(Button)`

@@ -6,7 +6,7 @@ import { TITLE_CHECKOUT, ROUTE_BROWSE, SYMBOL_EURO, ROUTE_HOME } from '../consta
 import LinkButton from '../components/LinkButton';
 import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 import CheckoutItemDetails from '../shopComponents/CheckoutDetails';
-import { PageBody, BigText } from '../components/HelperComponents';
+import { PageBody, BigText, Layout } from '../components/HelperComponents';
 import * as api from '../api/dummyApi';
 
 class Checkout extends React.Component {
@@ -36,7 +36,7 @@ class Checkout extends React.Component {
     const { context } = this.props;
     const total = context.getTotalPrice();
     return (
-      <React.Fragment>
+      <Layout>
         <Header title={TITLE_CHECKOUT}>
           <BackWrapper>
             <LinkButton label={'<<< Back to inventory'} to={ROUTE_BROWSE} />
@@ -49,16 +49,18 @@ class Checkout extends React.Component {
           <TextWrapper>
             <StyledBigText>{`TOTAL: ${total}${SYMBOL_EURO}`}</StyledBigText>
           </TextWrapper>
-          <StyledLinkButton
-            label="CONFIRM"
-            to={ROUTE_HOME}
-            buttonProps={{
-              variant: 'contained',
-              onClick: this.handleConfirm,
-            }}
-          />
+          <LinkWrapper>
+            <LinkButton
+              label="CONFIRM"
+              to={ROUTE_HOME}
+              buttonProps={{
+                variant: 'contained',
+                onClick: this.handleConfirm,
+              }}
+            />
+          </LinkWrapper>
         </PageBody>
-      </React.Fragment>
+      </Layout>
     );
   }
 }
@@ -91,8 +93,8 @@ const ItemsWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-const StyledLinkButton = styled(LinkButton)`
-  margin-bottom: 10px;
+const LinkWrapper = styled.div`
+  margin-bottom: 14px;
 `;
 
 export default props => (

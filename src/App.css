@@ -6,6 +6,7 @@
 }
 
 .App-header {
+  flex-shrink: 0;
   height: 150px;
   padding: 20px;
   background-color: #222;

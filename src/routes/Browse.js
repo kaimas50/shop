@@ -7,7 +7,7 @@ import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 import Header from '../components/Header';
 import { TITLE_INVENTORY } from '../constants';
 import ShoppingCartWidget from '../shopComponents/ShoppingCartWidget';
-import { PageBody } from '../components/HelperComponents';
+import { PageBody, Layout } from '../components/HelperComponents';
 
 class Browse extends React.Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class Browse extends React.Component {
   render() {
     const { context } = this.props;
     return (
-      <React.Fragment>
+      <Layout>
         <Header title={TITLE_INVENTORY}>
           <CartWrapper>
             <ShoppingCartWidget
@@ -35,7 +35,7 @@ class Browse extends React.Component {
         <PageBody>
           <Inventory shoppingCartContext={context} />
         </PageBody>
-      </React.Fragment>
+      </Layout>
     );
   }
 }

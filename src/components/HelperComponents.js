@@ -1,22 +1,17 @@
 import styled from 'styled-components';
 
-export const PageBody = styled.div`
+export const Layout = styled.div`
   height: 100%;
-  width: 100%;
-  position: absolute;
-  padding-top: 150px;
-  box-sizing: border-box;
-  z-index: -1;
-`;
-
-export const CenteringDiv = styled.div`
-  height: 100%;
-  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 `;
-CenteringDiv.displayName = 'CenteringDiv';
+Layout.displayName = 'Layout';
+
+export const PageBody = styled.div`
+  overflow: auto;
+  flex-grow: 1;
+`;
+PageBody.displayName = 'PageBody';
 
 export const ExpandingDiv = styled.div`
   height: 100%;

@@ -6,6 +6,7 @@ export const PageBody = styled.div`
   position: absolute;
   padding-top: 150px;
   box-sizing: border-box;
+  z-index: -1;
 `;
 
 export const CenteringDiv = styled.div`

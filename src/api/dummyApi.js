@@ -72,3 +72,7 @@ export function submit(cartContext) {
     ...order,
   ].join('\n'));
 }
+
+export function sendMessage(msg) { // eslint-disable-line no-unused-vars
+  return 'Thank you for your message...';
+}

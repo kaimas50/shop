@@ -8,6 +8,7 @@ import { ShoppingCartConsumer } from '../state/ShoppingCartContext';
 import CheckoutItemDetails from '../shopComponents/CheckoutDetails';
 import { PageBody, BigText } from '../components/HelperComponents';
 import * as api from '../api/dummyApi';
+import ChatButton from '../components/ChatButton';
 
 class Checkout extends React.Component {
   CheckoutItems = () => {
@@ -58,6 +59,7 @@ class Checkout extends React.Component {
             }}
           />
         </PageBody>
+        <ChatButton />
       </React.Fragment>
     );
   }
